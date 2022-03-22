@@ -1,0 +1,49 @@
+.acoes {
+    border-radius: 50%;
+    width: 15px;
+    height: 15px;
+    border: 1px solid;
+    padding: 0px;
+}
+
+.acoes:hover {
+    cursor: pointer;
+}
+
+.icones {
+    width: 10px;
+}
+
+table {
+    width: 100%;
+}
+
+tfoot {
+    background-color: rgb(204, 42, 226);
+    color: white;
+    text-align: center;
+}
+
+thead {
+    background-color: rgb(204, 42, 226);
+    color: white;
+    text-align: center;
+}
+
+.tabela {
+    border-radius: 6px;
+}
+
+.exibirAcitons {
+    visibility: hidden;
+    position: absolute;
+    right: 15px;
+}
+
+tr:hover span {
+    visibility: visible;
+}
+
+.linhaClara {
+    background-color: rgb(230, 255, 222);
+}
