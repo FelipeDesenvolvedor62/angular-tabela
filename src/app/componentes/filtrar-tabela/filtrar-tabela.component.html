@@ -1,0 +1,4 @@
+<div class="filtro">
+    <input type="text" style="width: 50%;" placeholder="Pressione 'ENTER' para filtrar ou 'ESC' para cancelar o filtro"
+        [(ngModel)]="termoPesquisado" (keyup.enter)="onKeyEnter()" (keyup.esc)="onKeyEsc()">
+</div>

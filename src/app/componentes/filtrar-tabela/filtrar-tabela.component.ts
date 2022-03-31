@@ -8,40 +8,41 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 export class FiltrarTabelaComponent implements OnInit {
 
   @Output() atualizar: EventEmitter<any> = new EventEmitter<any>();
-  @Input() valores: any = []
+  @Input() lista: any = []
   @Input() headers: any = []
 
   listaTotal: any = []
-  texto: string = ''
+  termoPesquisado: string = ''
 
   constructor() { }
 
   onKeyEnter() {
-    if (this.texto == '') return this.atualizar.emit(this.listaTotal)
+    if (this.termoPesquisado == '') return this.atualizar.emit(this.listaTotal)
 
-    this.valores = this.listaTotal
-    console.log('Inicio')
-    console.log(this.valores)
-    console.log('Fim -filho')
+    this.lista = this.listaTotal
     let listaTem: any = []
-    this.valores.forEach((item: any, index: any) => {
-      this.headers.forEach((cab: any) => {
-        if (('' + item[cab.data]).toLocaleUpperCase().includes(this.texto.toUpperCase())) {
-          listaTem.push(item)
-        }
+    this.lista.forEach((item: any) => {
+      console.log('index1')
+      let index = this.headers.findIndex((_: any) => {
+        return ('' + item[_.data]).toLocaleUpperCase().includes(this.termoPesquisado.toUpperCase())
       })
+      console.log('index2')
+      console.log(index)
+      if (index >= 0) {
+        listaTem.push(item)
+      }
     });
 
     this.atualizar.emit(listaTem)
   }
 
   onKeyEsc() {
-    this.texto = ''
+    this.termoPesquisado = ''
     this.atualizar.emit(this.listaTotal)
   }
 
   ngOnInit(): void {
-    this.listaTotal = [...this.valores]
+    this.listaTotal = [...this.lista]
   }
 
 }

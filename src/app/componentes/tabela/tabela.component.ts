@@ -8,11 +8,17 @@ import { Component, EventEmitter, Input, Output, OnInit } from '@angular/core';
 export class TabelaComponent implements OnInit {
 
   @Input() headers: any = [];
-  @Input() valores: any = []
-  @Input() actions: any = []
+  @Input() lista: any = []
   @Input() tituloFilho: any = [];
 
+  actions: any = [
+    { id: 1, label: 'Editar', icone: "../../assets/icon/pencil.svg" },
+    { id: 2, label: 'Excluir', icone: "../../assets/icon/trash.svg" },
+    { id: 3, label: 'Imprimir', icone: "../../assets/icon/printer.svg" }
+  ]
+
   @Output() atualizar: EventEmitter<any> = new EventEmitter<any>();
+  @Output() editar: EventEmitter<any> = new EventEmitter<any>();
 
   constructor() { }
 
@@ -36,13 +42,12 @@ export class TabelaComponent implements OnInit {
   }
 
   onClickEditar(item: any) {
-    console.log(item)
-    alert('Olha no cosole !!!')
+    this.editar.emit(item);
   }
 
   onClickExcluir(id: any) {
-    this.valores = this.valores.filter((x: any, index: any): any => index != id)
-    this.atualizar.emit(this.valores);
+    this.lista = this.lista.filter((x: any, index: any): any => index != id)
+    this.atualizar.emit(this.lista);
   }
 
   onClickImprimir() {

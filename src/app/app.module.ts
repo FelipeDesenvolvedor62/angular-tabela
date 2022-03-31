@@ -4,16 +4,20 @@ import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { TabelaComponent } from './tabela/tabela.component';
-import { FiltrarTabelaComponent } from './filtrar-tabela/filtrar-tabela.component';
-import { ProdutosComponent } from './produtos/produtos.component';
+import { TabelaComponent } from './componentes/tabela';
+import { FiltrarTabelaComponent } from './componentes/filtrar-tabela';
+import { ProdutosComponent } from './paginas/produtos';
+import { ClienteComponent } from './paginas/cliente';
+import { TituloComponent } from './componentes/titulo/titulo.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     TabelaComponent,
     FiltrarTabelaComponent,
-    ProdutosComponent
+    ProdutosComponent,
+    ClienteComponent,
+    TituloComponent
   ],
   imports: [
     BrowserModule,

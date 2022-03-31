@@ -1,0 +1,36 @@
+<h1>Produto</h1>
+<div class="col-md-12 row">
+    <div class="col-md-1">
+        <label>id</label>
+        <input type="text" style="width: 100%;" disabled [(ngModel)]="model.id">
+    </div>
+    <div class="col-md-3">
+        <label>Descrição</label>
+        <input type="text" style="width: 100%;" [(ngModel)]="model.descricao">
+    </div>
+    <div class="col-md-2">
+        <label>Quantidade</label>
+        <input type="number" style="width: 100%;" pattern="\d*" [(ngModel)]="model.quantidade"
+            (change)="model.total = model.valor * model.quantidade">
+    </div>
+    <div class="col-md-2">
+        <label>valor</label>
+        <input type="number" style="width: 100%;" [(ngModel)]="model.valor"
+            (change)="model.total = model.valor * model.quantidade">
+    </div>
+    <div class="col-md-2">
+        <label>Total</label>
+        <input type="number" disabled style="width: 100%;" value="{{model.total}}">
+    </div>
+    <div class="col-md-2" style="display: inline;">
+
+        <input type="submit" value="Gravar" style="margin-top: 35px" (click)="salvar()">
+    </div>
+</div>
+
+
+<app-filtrar-tabela [lista]="produtos" [headers]="headers" (atualizar)="atualizarListaComTermoDeBusca($event)">
+</app-filtrar-tabela>
+<app-tabela [lista]="produtos" [headers]="headers" (atualizar)="atualizarListaComTermoDeBusca($event)"
+    (editar)="editarProduto($event)">
+</app-tabela>

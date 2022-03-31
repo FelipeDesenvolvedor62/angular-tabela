@@ -2,7 +2,7 @@
     <thead>
         <td *ngFor="let cab of headers">{{cab.label}}</td>
     </thead>
-    <tr *ngFor="let item of valores; let linha = index" [ngClass]="{'linhaClara': linha % 2  }">
+    <tr *ngFor="let item of lista; let linha = index" [ngClass]="{'linhaClara': linha % 2  }">
         <td *ngFor="let cab of headers" [ngStyle]="{'text-align': tipoVarieavel(item[cab.data]) ? 'center':'left'}">
             <label *ngIf="!cab.type" for="">{{item[cab.data]}}</label>
             <input *ngIf="cab.type" style="width: 100%;" type="{{cab.type}}" [(ngModel)]="item[cab.data]" />
@@ -17,7 +17,7 @@
     </tr>
     <tfoot>
         <tr class="rodape">
-            <td colspan="5">1 de {{valores.length}}</td>
+            <td colspan="5">1 de {{lista.length}}</td>
         </tr>
     </tfoot>
 </table>
