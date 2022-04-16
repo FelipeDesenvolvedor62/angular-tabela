@@ -7,7 +7,6 @@ import { AppComponent } from './app.component';
 import { TabelaComponent } from './componentes/tabela';
 import { FiltrarTabelaComponent } from './componentes/filtrar-tabela';
 import { ProdutosComponent } from './paginas/produtos';
-import { ClienteComponent } from './paginas/cliente';
 import { TituloComponent } from './componentes/titulo/titulo.component';
 
 @NgModule({
@@ -16,7 +15,6 @@ import { TituloComponent } from './componentes/titulo/titulo.component';
     TabelaComponent,
     FiltrarTabelaComponent,
     ProdutosComponent,
-    ClienteComponent,
     TituloComponent
   ],
   imports: [
