@@ -8,6 +8,8 @@ import { Component, Input, OnInit } from '@angular/core';
 export class TituloComponent implements OnInit {
 
   @Input() titulo: string = "Título"
+  @Input() caminho: { rota: string, label: string }[] = []
+
 
   constructor() { }
 

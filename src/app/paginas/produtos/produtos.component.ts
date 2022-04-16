@@ -9,6 +9,10 @@ import { Produto } from './model/produto';
 export class ProdutosComponent implements OnInit {
 
   model: Produto = new Produto()
+  caminho = [
+    {rota: '', label: 'Home'},
+    {rota: 'Produto', label: 'Formúlario de produto'},
+  ]
 
   headers: any = [
     { label: 'Código', data: 'id' },
